@@ -27,7 +27,7 @@ countrySynonyms <- read.table(inFile,sep='\t', as.is=TRUE, fill=TRUE, header = F
                           ,col.names=c('ID','ISO3', paste("name", seq_len(ncol-2), sep = "")) )
 
 #now save this into the data folder of rworldmap
-save(countrySynonyms, file="C://rworldmapWorkingCopy//rworldmap//data//countrySynonyms.rda")
+save(countrySynonyms, file="C:\\rworldmapRForgeWC//pkg//rworldmap//data//countrySynonyms.rda")
 
 #create the documentation files - may need editing
 #DONT run these after having edited the files
@@ -35,16 +35,24 @@ save(countrySynonyms, file="C://rworldmapWorkingCopy//rworldmap//data//countrySy
 #prompt(rwmGetISO3, file="c://rworldmapWorkingCopy//rworldmap//man//rwmGetISO3.Rd")
 
 #5/10/12
-#adding extra synonyms
-#should I just add in by hand, or put in separetly so that I can add to Perl ones later if they are updated too
-setwd("C:\\rworldmapWorkingCopy\\rworldmapSetup\\")
+#Procedure for ADDing extra synonyms
+setwd("C:\\rworldmapRForgeWC\\rworldmapSetup\\")
+#write a csv from current package version
+data(countrySynonyms)
 write.csv(countrySynonyms,file="countrySynonyms.csv",row.names=FALSE)
+##make edits by hand to the csv in Excel
+## read the csv back into R
 countrySynonyms <- read.csv("countrySynonyms.csv",as.is=TRUE)
+#save this into the data folder of rworldmap
+save(countrySynonyms, file="C:\\rworldmapRForgeWC//pkg//rworldmap//data//countrySynonyms.rda")
+#commit changes
 
-#for now I'll edit by hand
+
 #later I could write something to check whether there are any new additions from the Perl code & add these on
-#i'm also going to add in some iso3s that are missing
-str(countrySynonyms)
+
+#Record of additions by hand
+#Format for addition of ID2 to ID1 
+#[ID1]:[] [ID2]:[]  
 
 #name1:Gaza Strip ISO3:gaza names:Gaza
 #name1:Taiwan ISO3:twn
@@ -72,6 +80,9 @@ str(countrySynonyms)
 #name1:Saint Lucia names:St. Lucia
 #name1:Saint Vincent and the Grenadines names:St.Vincent & Grenadines
 #name1:West Bank iso3:pse names:Palestine
+#name1:Guinea-Bissau names:Guinea Bissau
+#name1: 'Congo, The Democratic Republic of the' names:Democratic Republic of Congo
+#name1: Congo names:Republic of Congo
 
 
 
