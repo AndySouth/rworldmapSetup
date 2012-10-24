@@ -6,7 +6,7 @@
 library(rworldmap)
 
 data(countryRegions)
-setwd('C:\\rworldmapWorkingCopy\\rworldmapSetup\\')
+setwd('C:\\rworldmapRForgeWC\\rworldmapSetup\\')
 
 
 #31/5/12
@@ -93,4 +93,4 @@ countryRegions$ADMIN[which(countryRegions$LLDC=='LLDC')]
 length( which(countryRegions$SID=='SID'))
 countryRegions$ADMIN[which(countryRegions$SID=='SID')]
 
-save(countryRegions, file="C://rworldmapWorkingCopy//rworldmap//data//countryRegions.rda")
+save(countryRegions, file="C://rworldmapRForgeWC//pkg//rworldmap//data//countryRegions.rda")

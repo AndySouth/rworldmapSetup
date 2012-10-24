@@ -242,18 +242,18 @@ proj4string(countriesHigh) <- CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_d
 #cCmerc <- spTransform(countriesCoarse[-7,], CRS=CRS("+proj=merc +ellps=WGS84"))
 #cCmerc <- spTransform(countriesCoarse[-7,], CRS=CRS("+proj=robin +ellps=WGS84"))
 
-save(countriesCoarseLessIslands, file="C://rworldmapWorkingCopy//rworldmap//data//countriesCoarseLessIslands.rda")
-save(countriesCoarse, file="C://rworldmapWorkingCopy//rworldmap//data//countriesCoarse.rda")
-save(countriesLow, file="C://rworldmapWorkingCopy//rworldmap//data//countriesLow.rda")
+save(countriesCoarseLessIslands, file="C://rworldmapRForgeWC//pkg//rworldmap//data//countriesCoarseLessIslands.rda")
+save(countriesCoarse, file="C://rworldmapRForgeWC//pkg//rworldmap//data//countriesCoarse.rda")
+save(countriesLow, file="C://rworldmapRForgeWC//pkg//rworldmap//data//countriesLow.rda")
 #i think this one is too big
-save(countriesHigh, file="C://rworldmapWorkingCopy//rworldmap//data//countriesHigh.rda")
+save(countriesHigh, file="C://rworldmapRForgeWC//pkg//rworldmap//data//countriesHigh.rda")
 
 #create the documentation files - may need editing
 #DONT run these after having edited the files
-#prompt(countriesCoarseLessIslands, file="c://rworldmapWorkingCopy//rworldmap//man//countriesCoarseLessIslands.Rd")
-#prompt(countriesCoarse, file="c://rworldmapWorkingCopy//rworldmap//man//countriesCoarse.Rd")
-#prompt(countriesLow, file="c://rworldmapWorkingCopy//rworldmap//man//countriesLow.Rd")
-#prompt(countriesHigh, file="c://rworldmapWorkingCopy//rworldmap//man//countriesHigh.Rd")
+#prompt(countriesCoarseLessIslands, file="c://rworldmapRForgeWC//pkg//rworldmap//man//countriesCoarseLessIslands.Rd")
+#prompt(countriesCoarse, file="c://rworldmapRForgeWC//pkg//rworldmap//man//countriesCoarse.Rd")
+#prompt(countriesLow, file="c://rworldmapRForgeWC//pkg//rworldmap//man//countriesLow.Rd")
+#prompt(countriesHigh, file="c://rworldmapRForgeWC//pkg//rworldmap//man//countriesHigh.Rd")
 
 #30/9/2012
 #sorting coastline to remove reliance on maps package
@@ -261,8 +261,8 @@ inCoast <- "c:\\rworldmapdata\\naturalEarthData\\110m_coastline.shp"
 
 coastsCoarse <- readShapeLines(inCoast)
 proj4string(coastsCoarse) <- CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
-save(coastsCoarse, file="C://rworldmapWorkingCopy//rworldmap//data//coastsCoarse.rda")
-#prompt(coastsCoarse, file="c://rworldmapWorkingCopy//rworldmap//man//coastsCoarse.Rd")
+save(coastsCoarse, file="C://rworldmapRForgeWC//pkg//rworldmap//data//coastsCoarse.rda")
+#prompt(coastsCoarse, file="c://rworldmapRForgeWC//pkg//rworldmap//man//coastsCoarse.Rd")
 
 #plot(coast)
 
