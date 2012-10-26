@@ -242,11 +242,23 @@ proj4string(countriesHigh) <- CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_d
 #cCmerc <- spTransform(countriesCoarse[-7,], CRS=CRS("+proj=merc +ellps=WGS84"))
 #cCmerc <- spTransform(countriesCoarse[-7,], CRS=CRS("+proj=robin +ellps=WGS84"))
 
+#26/10/12 changing ISO3 for South Sudan from SDS to SSD
+levels(countriesCoarseLessIslands$ISO_A3)[which(levels(countriesCoarseLessIslands$ISO_A3)=='SDS')] <- 'SSD'
+levels(countriesCoarse$ISO_A3)[which(levels(countriesCoarse$ISO_A3)=='SDS')] <- 'SSD'
+levels(countriesLow$ISO_A3)[which(levels(countriesLow$ISO_A3)=='SDS')] <- 'SSD'
+levels(countriesHigh$ISO_A3)[which(levels(countriesHigh$ISO_A3)=='SDS')] <- 'SSD'
+
+countriesCoarseLessIslands$ISO3 <- countriesCoarseLessIslands$ISO_A3
+countriesCoarse$ISO3 <- countriesCoarse$ISO_A3      
+countriesLow$ISO3 <- countriesLow$ISO_A3
+countriesHigh$ISO3 <- countriesHigh$ISO_A3
+
+
 save(countriesCoarseLessIslands, file="C://rworldmapRForgeWC//pkg//rworldmap//data//countriesCoarseLessIslands.rda")
 save(countriesCoarse, file="C://rworldmapRForgeWC//pkg//rworldmap//data//countriesCoarse.rda")
 save(countriesLow, file="C://rworldmapRForgeWC//pkg//rworldmap//data//countriesLow.rda")
-#i think this one is too big
-save(countriesHigh, file="C://rworldmapRForgeWC//pkg//rworldmap//data//countriesHigh.rda")
+#rworldxtra
+save(countriesHigh, file="C://rworldmapRForgeWC//pkg//rworldxtra//data//countriesHigh.rda")
 
 #create the documentation files - may need editing
 #DONT run these after having edited the files
