@@ -83,6 +83,17 @@ save(countrySynonyms, file="C:\\rworldmapRForgeWC//pkg//rworldmap//data//country
 #name1:Guinea-Bissau names:Guinea Bissau
 #name1: 'Congo, The Democratic Republic of the' names:Democratic Republic of Congo
 #name1: Congo names:Republic of Congo
-
-
-
+##from world bank data
+#name1:Egypt names:Egypt, Arab Rep.
+#name1:Hong Kong names:Hong Kong SAR, China
+#name1:Iran, Islamic Republic of names:Iran, Islamic Rep.
+#name1:Korea, Republic of names:Korea, Rep.
+#iso3:lao names:Lao PDR
+#name1:Macao names:Macao SAR, China
+#name1:Micronesia, Federated States of names:Micronesia, Fed. Sts.
+#name1:Saint Martin (French part) names:St. Martin (French part)
+#iso3:vct names:St. Vincent and the Grenadines
+#iso3:ven names:Venezuela, RB
+#iso3:vir names:Virgin Islands (U.S.)
+#iso3:pse names:West Bank and Gaza
+#name1:Yemen names:Yemen, Rep.
