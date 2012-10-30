@@ -81,8 +81,20 @@ cR2 <- cR2[-nums2remove]
 #outputting as a csv file to allow editing
 write.csv(cR2,file="countryRegions.csv",row.names=FALSE)
 
-countryRegions <- read.csv("countryRegions.csv",as.is=TRUE)
+#countryRegions <- read.csv("countryRegions.csv",as.is=TRUE)
 
+#30/10/12 adding French Guiana
+data(countryRegions)
+#first copy from Guyana
+newRow <- 1+nrow(countryRegions)
+countryRegions[ newRow,] <- countryRegions[ which(countryRegions$ADMIN=='Guyana'),]
+#then change fields that need changing
+countryRegions$ADMIN[ newRow ] <- 'French Guiana'
+countryRegions$ISO3[ newRow ] <- 'GUF'
+#its not a SID
+countryRegions$SID[ newRow ] <- 'other'
+
+##TESTING
 #testing num LDCs : least developed countries, should be 48 this is 49 due to South Sudan
 length( which(countryRegions$LDC=='LDC'))
 countryRegions$ADMIN[which(countryRegions$LDC=='LDC')]
@@ -92,5 +104,7 @@ countryRegions$ADMIN[which(countryRegions$LLDC=='LLDC')]
 #testing num SIDs : , should be 38 + 14 = 52, is 50 2 missing
 length( which(countryRegions$SID=='SID'))
 countryRegions$ADMIN[which(countryRegions$SID=='SID')]
+
+
 
 save(countryRegions, file="C://rworldmapRForgeWC//pkg//rworldmap//data//countryRegions.rda")

@@ -247,11 +247,12 @@ levels(countriesCoarseLessIslands$ISO_A3)[which(levels(countriesCoarseLessIsland
 levels(countriesCoarse$ISO_A3)[which(levels(countriesCoarse$ISO_A3)=='SDS')] <- 'SSD'
 levels(countriesLow$ISO_A3)[which(levels(countriesLow$ISO_A3)=='SDS')] <- 'SSD'
 levels(countriesHigh$ISO_A3)[which(levels(countriesHigh$ISO_A3)=='SDS')] <- 'SSD'
-
 countriesCoarseLessIslands$ISO3 <- countriesCoarseLessIslands$ISO_A3
 countriesCoarse$ISO3 <- countriesCoarse$ISO_A3      
 countriesLow$ISO3 <- countriesLow$ISO_A3
 countriesHigh$ISO3 <- countriesHigh$ISO_A3
+
+
 
 
 save(countriesCoarseLessIslands, file="C://rworldmapRForgeWC//pkg//rworldmap//data//countriesCoarseLessIslands.rda")
