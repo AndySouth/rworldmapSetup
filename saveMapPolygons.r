@@ -137,7 +137,8 @@ countriesLow <- spChFIDs(countriesLow, as.character(countriesLow$ADMIN))
 countriesCoarse <- spChFIDs(countriesCoarse, as.character(countriesCoarse$ADMIN))
 countriesCoarse <- rbind(countriesCoarse,countriesLow[extraPosns,])
 countriesHigh <- spChFIDs(countriesHigh, as.character(countriesHigh$ADMIN))
-
+#30/10/12 also needed to do this for li
+countriesCoarseLessIslands <- spChFIDs(countriesCoarseLessIslands, as.character(countriesCoarseLessIslands$ADMIN))
 
 #to add Tuvalu from the high map
 #but problem that high map has 2 extra columns ne_10m_adm & OID_
@@ -171,6 +172,65 @@ countriesLow$LON <- coordinates(countriesLow)[,1]
 countriesLow$LAT <- coordinates(countriesLow)[,2]
 countriesHigh$LON <- coordinates(countriesHigh)[,1]
 countriesHigh$LAT <- coordinates(countriesHigh)[,2]
+
+#30/10/12 adding French Guiana (need to do before the countryRegions file is joined)
+#the coordinates for French Guiana are the 2nd polygon of 3 in France
+#need to create a new row for French Guiana
+#and remove the 2nd polygon from France
+addGUF <- function( sPDF ){
+  
+  numFrance <- which( sPDF$ADMIN == 'France' ) #56
+  franceCoarse <- sPDF[ 'France', ] #note this doesn't take any of the @data with it
+  #the coordinates are the 2nd polygon in France
+  guf<- Polygon(slot(slot(slot(franceCoarse,'polygons')[[1]],'Polygons')[[2]],'coords'))
+  guf2 <- Polygons(list(guf),ID='French Guiana')
+  gufData <- sPDF@data[numFrance,] #first copy data for France
+  gufData$ADMIN <- gufData$NAME <- gufData$GEOUNIT <- gufData$SUBUNIT <- gufData$NAME_FORMA <- gufData$NAME_SORT <- 'French Guiana'
+  gufData$ISO3 <- gufData$ISO_A3 <- gufData$ADM0_A3 <- gufData$GU_A3 <- gufData$SU_A3 <- 'GUF'
+  #**I'll need to change other attributes for FG
+  gufData$POP_EST <- 236250 #source wikipedia for Jan 2011
+  gufData$TYPE <- 'Dependency'
+  gufData$ABBREV <- 'Fr. Gui.'
+  gufData$TERR_ <- 'Fr.'
+  gufData$GDP_MD_EST <- NA #3.2 billion Euros wikipedia(2008)
+  gufData$FIPS_10_ <- 'FG'
+  gufData$ISO_A2 <- 'GF'
+  gufData$LON <- -53.17471
+  gufData$LAT <- 3.833223
+  #other changes set in countryRegions
+  
+  row.names(gufData) <- 'French Guiana'
+  guf3 <- SpatialPolygons(list(guf2))
+  guf4 <- SpatialPolygonsDataFrame(guf3,data=gufData)
+  guf4 <- spChFIDs(guf4, row.names(guf3))
+  #strangely this was needed too
+  sPDF <- spChFIDs(sPDF, row.names(sPDF))
+  #the space at the start of the CRS is important
+  proj4string(guf4) <- CRS(" +proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs +towgs84=0,0,0")
+  proj4string(sPDF) <- CRS(" +proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs +towgs84=0,0,0")
+  
+  # joining French Guiana back on to countries map
+  sPDF2 <- rbind(sPDF,guf4)
+  
+  #remove the GUF polygon from France - see the -2
+  slot(slot(sPDF2,'polygons')[[numFrance]],'Polygons') <- slot(slot(sPDF2,'polygons')[[numFrance]],'Polygons')[-2]
+  #also need to modify num polygons in plotOrder #***BEWARE this is tricky***#
+  pO <- slot(slot(sPDF2,'polygons')[[numFrance]],'plotOrder') 
+  pO <- pO[ -length(pO) ] #remove last element from plotOrder
+  slot(slot(sPDF2,'polygons')[[numFrance]],'plotOrder') <- pO
+  
+  #returning the modified sPDF
+  invisible(sPDF2)
+} # end of addGUF function
+
+#using addGUF() to modify package maps
+countriesCoarse <- addGUF(countriesCoarse)
+countriesCoarseLessIslands <- addGUF(countriesCoarseLessIslands)
+countriesLow <- addGUF(countriesLow)
+countriesHigh <- addGUF(countriesHigh)
+
+#end of adding French Guiana
+
 
 #join each map to the regions file #can't use joinCOuntryData2Map because the map data isn't in there yet !
 data(countryRegions)
