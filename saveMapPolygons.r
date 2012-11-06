@@ -177,12 +177,12 @@ countriesHigh$LAT <- coordinates(countriesHigh)[,2]
 #the coordinates for French Guiana are the 2nd polygon of 3 in France
 #need to create a new row for French Guiana
 #and remove the 2nd polygon from France
-addGUF <- function( sPDF ){
+addGUF <- function( sPDF, polyNumToMove=1 ){
   
   numFrance <- which( sPDF$ADMIN == 'France' ) #56
   franceCoarse <- sPDF[ 'France', ] #note this doesn't take any of the @data with it
   #the coordinates are the 2nd polygon in France
-  guf<- Polygon(slot(slot(slot(franceCoarse,'polygons')[[1]],'Polygons')[[2]],'coords'))
+  guf<- Polygon(slot(slot(slot(franceCoarse,'polygons')[[1]],'Polygons')[[polyNumToMove]],'coords'))
   guf2 <- Polygons(list(guf),ID='French Guiana')
   gufData <- sPDF@data[numFrance,] #first copy data for France
   gufData$ADMIN <- gufData$NAME <- gufData$GEOUNIT <- gufData$SUBUNIT <- gufData$NAME_FORMA <- gufData$NAME_SORT <- 'French Guiana'
@@ -212,8 +212,8 @@ addGUF <- function( sPDF ){
   # joining French Guiana back on to countries map
   sPDF2 <- rbind(sPDF,guf4)
   
-  #remove the GUF polygon from France - see the -2
-  slot(slot(sPDF2,'polygons')[[numFrance]],'Polygons') <- slot(slot(sPDF2,'polygons')[[numFrance]],'Polygons')[-2]
+  #remove the GUF polygon from France - see the -polyNumToMove
+  slot(slot(sPDF2,'polygons')[[numFrance]],'Polygons') <- slot(slot(sPDF2,'polygons')[[numFrance]],'Polygons')[-polyNumToMove]
   #also need to modify num polygons in plotOrder #***BEWARE this is tricky***#
   pO <- slot(slot(sPDF2,'polygons')[[numFrance]],'plotOrder') 
   pO <- pO[ -length(pO) ] #remove last element from plotOrder
@@ -224,11 +224,16 @@ addGUF <- function( sPDF ){
 } # end of addGUF function
 
 #using addGUF() to modify package maps
-countriesCoarse <- addGUF(countriesCoarse)
-countriesCoarseLessIslands <- addGUF(countriesCoarseLessIslands)
-countriesLow <- addGUF(countriesLow)
-countriesHigh <- addGUF(countriesHigh)
+countriesCoarse <- addGUF(countriesCoarse, polyNumToMove=1)
+countriesCoarseLessIslands <- addGUF(countriesCoarseLessIslands, polyNumToMove=1)
+countriesLow <- addGUF(countriesLow, polyNumToMove=3)
+countriesHigh <- addGUF(countriesHigh, polyNumToMove=4)
 
+#testing
+plot(countriesCoarse[ 'France', ]) 
+plot(countriesCoarseLessIslands[ 'France', ]) 
+plot(countriesLow[ 'France', ]) 
+plot(countriesHigh[ 'France', ]) 
 #end of adding French Guiana
 
 
