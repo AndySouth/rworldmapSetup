@@ -97,3 +97,19 @@ save(countrySynonyms, file="C:\\rworldmapRForgeWC//pkg//rworldmap//data//country
 #iso3:vir names:Virgin Islands (U.S.)
 #iso3:pse names:West Bank and Gaza
 #name1:Yemen names:Yemen, Rep.
+#IARC 10/12/12
+#name1: 'Congo, The Democratic Republic of the' names:Congo, Democratic Republic of
+#name1: Congo names:Congo, Republic of 
+#name1:The Netherlands names:The Netherlands
+#name1:France names: France (metropolitan)
+#name1:Bosnia and Herzegovina #names:Bosnia Herzegovena
+#iso3:mkd names:FYR Macedonia
+#iso3:civ names:Cote d Ivoire
+#iso3:gmb names:The Gambia
+#iso3:zaf names:South African Republic
+#iso3:guf names:French Guyana
+#iso3:glp names:France, Guadeloupe
+#iso3:mtq names:France, Martinique
+#iso3:prk names:Korea, Democratic Republic of
+
+

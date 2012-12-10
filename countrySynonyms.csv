@@ -32,7 +32,7 @@ ID,ISO3,name1,name2,name3,name4,name5,name6,name7,name8
 27,bol,"Bolivia, Plurinational State of",Bolivia (Plurinational State of),Bolivia,Republic of Bolivia,,,,NA
 28,bes,"Bonaire, Saint Eustatius and Saba",,,,,,,NA
 278,,"Bonaire, Sint Eustatius and Saba",,,,,,,NA
-29,bih,Bosnia and Herzegovina,Bosnia-Herzegovina,,,,,,NA
+29,bih,Bosnia and Herzegovina,Bosnia-Herzegovina,Bosnia Herzegovena,,,,,NA
 30,bwa,Botswana,Republic of Botswana,,,,,,NA
 31,,Bouvet Island,,,,,,,NA
 32,bra,Brazil,Federative Republic of Brazil,,,,,,NA
@@ -56,12 +56,12 @@ ID,ISO3,name1,name2,name3,name4,name5,name6,name7,name8
 48,,Cocos (Keeling) Islands,Territory of Cocos (Keeling) Islands,Keeling Islands,Cocos Islands,,,,NA
 49,col,Colombia,Republic of Colombia,,,,,,NA
 50,com,Comoros,Federal Islamic Republic of the Comoros,,,,,,NA
-51,cog,Congo,Congo (Brazzaville),Republic of the Congo,"Congo, Republic of the",The Republic of the Congo,"Congo, Rep.",Republic of Congo,NA
-52,cod,"Congo, The Democratic Republic of the",Democratic Republic of the Congo,Congo (Kinshasa),"Congo, Democratic Republic of the",The Democratic Republic of the Congo,"Congo, Dem. Rep.",Democratic Republic of Congo,NA
+51,cog,Congo,Congo (Brazzaville),Republic of the Congo,"Congo, Republic of the",The Republic of the Congo,"Congo, Rep.",Republic of Congo,"Congo, Republic of"
+52,cod,"Congo, The Democratic Republic of the",Democratic Republic of the Congo,Congo (Kinshasa),"Congo, Democratic Republic of the",The Democratic Republic of the Congo,"Congo, Dem. Rep.",Democratic Republic of Congo,"Congo, Democratic Republic of"
 53,cok,Cook Islands,,,,,,,NA
 257,,Coral Sea Islands,Coral Sea Islands Territory,,,,,,NA
 54,cri,Costa Rica,Republic of Costa Rica,,,,,,NA
-55,civ,Cote d'Ivoire,Republic of Cote D'Ivoire,Ivory Coast,,,,,NA
+55,civ,Cote d'Ivoire,Republic of Cote D'Ivoire,Ivory Coast,Cote d Ivoire,,,,NA
 56,hrv,Croatia,Republic of Croatia,,,,,,NA
 57,cub,Cuba,Republic of Cuba,,,,,,NA
 58,cuw,Curacao,,,,,,,NA
@@ -84,12 +84,12 @@ ID,ISO3,name1,name2,name3,name4,name5,name6,name7,name8
 73,fro,Faroe Islands,Faeroe Islands,,,,,,NA
 74,fji,Fiji,Republic of the Fiji Islands,,,,,,NA
 75,fin,Finland,Republic of Finland,,,,,,NA
-76,fra,France,French Republic,,,,,,NA
-77,guf,French Guiana,Department of Guiana,,,,,,NA
+76,fra,France,French Republic,France (metropolitan),,,,,NA
+77,guf,French Guiana,Department of Guiana,French Guyana,,,,,NA
 78,pyf,French Polynesia,Territory of French Polynesia,,,,,,NA
 79,atf,French Southern Territories,French Southern and Antarctic Lands,Territory of the French Southern and Antarctic Lands,,,,,NA
 80,gab,Gabon,Gabonese Republic,,,,,,NA
-81,gmb,Gambia,"Gambia, The",Republic of the Gambia,,,,,NA
+81,gmb,Gambia,"Gambia, The",Republic of the Gambia,The Gambia,,,,NA
 259,gaza,Gaza Strip,Gaza,,,,,,NA
 82,geo,Georgia,,,,,,,NA
 83,deu,Germany,Federal Republic of Germany,,,,,,NA
@@ -99,7 +99,7 @@ ID,ISO3,name1,name2,name3,name4,name5,name6,name7,name8
 86,grc,Greece,Hellenic Republic,,,,,,NA
 87,grl,Greenland,,,,,,,NA
 88,grd,Grenada,,,,,,,NA
-89,glp,Guadeloupe,Department of Guadeloupe,,,,,,NA
+89,glp,Guadeloupe,Department of Guadeloupe,"France, Guadeloupe",,,,,NA
 90,gum,Guam,Territory of Guam,,,,,,NA
 91,gtm,Guatemala,Republic of Guatemala,,,,,,NA
 92,ggy,Guernsey,Bailiwick of Guernsey,,,,,,NA
@@ -134,7 +134,7 @@ ID,ISO3,name1,name2,name3,name4,name5,name6,name7,name8
 116,ken,Kenya,Republic of Kenya,,,,,,NA
 266,,Kingman Reef,,,,,,,NA
 117,kir,Kiribati,Republic of Kiribati,,,,,,NA
-118,prk,"Korea, Democratic People's Republic of",Democratic People's Republic of Korea,"Korea, North",North Korea,"Korea, Dem. Rep.",,,NA
+118,prk,"Korea, Democratic People's Republic of",Democratic People's Republic of Korea,"Korea, North",North Korea,"Korea, Dem. Rep.","Korea, Democratic Republic of",,NA
 119,kor,"Korea, Republic of",Republic of Korea,"Korea, South",South Korea,Korea,"Korea, Rep.",,NA
 282,kos,Kosovo,,,,,,,NA
 120,kwt,Kuwait,State of Kuwait,,,,,,NA
@@ -149,7 +149,7 @@ ID,ISO3,name1,name2,name3,name4,name5,name6,name7,name8
 129,ltu,Lithuania,Republic of Lithuania,,,,,,NA
 130,lux,Luxembourg,Grand Duchy of Luxembourg,,,,,,NA
 131,mac,Macao,"China, Macao Special Administrative Region",Macau S.A.R,Macau Special Administrative Region,Macau S.A.R.,Macau,Macao Special Administrative Region of China,"Macao SAR, China                              "
-132,mkd,"Macedonia, The Former Yugoslav Republic of",The former Yugoslav Republic of Macedonia,Macedonia,Republic of Macedonia,"Macedonia, Former Yugoslav Republic of","Macedonia, FYR",,NA
+132,mkd,"Macedonia, The Former Yugoslav Republic of",The former Yugoslav Republic of Macedonia,Macedonia,Republic of Macedonia,"Macedonia, Former Yugoslav Republic of","Macedonia, FYR",FYR Macedonia,NA
 133,mdg,Madagascar,Republic of Madagascar,,,,,,NA
 134,mwi,Malawi,Republic of Malawi,,,,,,NA
 135,mys,Malaysia,,,,,,,NA
@@ -157,7 +157,7 @@ ID,ISO3,name1,name2,name3,name4,name5,name6,name7,name8
 137,mli,Mali,Republic of Mali,,,,,,NA
 138,mlt,Malta,Republic of Malta,,,,,,NA
 139,mhl,Marshall Islands,Republic of the Marshall Islands,,,,,,NA
-140,mtq,Martinique,Department of Martinique,,,,,,NA
+140,mtq,Martinique,Department of Martinique,"France, Martinique",,,,,NA
 141,mrt,Mauritania,Islamic Republic of Mauritania,,,,,,NA
 142,mus,Mauritius,Republic of Mauritius,,,,,,NA
 143,myt,Mayotte,Territorial Collectivity of Mayotte,,,,,,NA
@@ -176,7 +176,7 @@ ID,ISO3,name1,name2,name3,name4,name5,name6,name7,name8
 155,nru,Nauru,Republic of Nauru,,,,,,NA
 268,,Navassa Island,,,,,,,NA
 156,npl,Nepal,Kingdom of Nepal,,,,,,NA
-157,nld,Netherlands,Kingdom of the Netherlands,,,,,,NA
+157,nld,Netherlands,Kingdom of the Netherlands,The Netherlands,,,,,NA
 269,,Netherlands Antilles,,,,,,,NA
 158,ncl,New Caledonia,Territory of New Caledonia and Dependencies,,,,,,NA
 159,nzl,New Zealand,,,,,,,NA
@@ -231,7 +231,7 @@ ID,ISO3,name1,name2,name3,name4,name5,name6,name7,name8
 203,svn,Slovenia,Republic of Slovenia,,,,,,NA
 204,slb,Solomon Islands,,,,,,,NA
 205,som,Somalia,,,,,,,NA
-206,zaf,South Africa,Republic of South Africa,,,,,,NA
+206,zaf,South Africa,Republic of South Africa,South African Republic,,,,,NA
 207,,South Georgia and the South Sandwich Islands,South Georgia and the Islands,,,,,,NA
 208,ssd,South Sudan,,,,,,,NA
 280,,Soviet Union,,,,,,,NA
