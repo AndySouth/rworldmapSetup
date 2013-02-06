@@ -317,7 +317,15 @@ countriesCoarse$ISO3 <- countriesCoarse$ISO_A3
 countriesLow$ISO3 <- countriesLow$ISO_A3
 countriesHigh$ISO3 <- countriesHigh$ISO_A3
 
-
+#10/12/12 changing ISO3 for Western Sahara from SAH to ESH
+levels(countriesCoarseLessIslands$ISO_A3)[which(levels(countriesCoarseLessIslands$ISO_A3)=='SAH')] <- 'ESH'
+levels(countriesCoarse$ISO_A3)[which(levels(countriesCoarse$ISO_A3)=='SAH')] <- 'ESH'
+levels(countriesLow$ISO_A3)[which(levels(countriesLow$ISO_A3)=='SAH')] <- 'ESH'
+levels(countriesHigh$ISO_A3)[which(levels(countriesHigh$ISO_A3)=='SAH')] <- 'ESH'
+countriesCoarseLessIslands$ISO3 <- countriesCoarseLessIslands$ISO_A3
+countriesCoarse$ISO3 <- countriesCoarse$ISO_A3      
+countriesLow$ISO3 <- countriesLow$ISO_A3
+countriesHigh$ISO3 <- countriesHigh$ISO_A3
 
 
 save(countriesCoarseLessIslands, file="C://rworldmapRForgeWC//pkg//rworldmap//data//countriesCoarseLessIslands.rda")
