@@ -30,6 +30,12 @@ countriesCoarse$POP_EST[ which(countriesCoarse$POP_EST < 0)] <- NA
 countriesLow$POP_EST[ which(countriesLow$POP_EST < 0)] <- NA
 countriesHigh$POP_EST[ which(countriesHigh$POP_EST < 0)] <- NA
 
+#1/7/13
+#replacing -99 with NA in gdp figures
+countriesCoarse$GDP_MD_EST[ which(countriesCoarse$GDP_MD_EST < 0)] <- NA
+countriesLow$GDP_MD_EST[ which(countriesLow$GDP_MD_EST < 0)] <- NA
+countriesHigh$GDP_MD_EST[ which(countriesHigh$GDP_MD_EST < 0)] <- NA
+
 #converting curacao that can be a pain later otherwise due to non-ascii
 tmp <- countriesLow@data
 for(i in seq(tmp))
@@ -326,6 +332,8 @@ countriesCoarseLessIslands$ISO3 <- countriesCoarseLessIslands$ISO_A3
 countriesCoarse$ISO3 <- countriesCoarse$ISO_A3      
 countriesLow$ISO3 <- countriesLow$ISO_A3
 countriesHigh$ISO3 <- countriesHigh$ISO_A3
+
+
 
 
 save(countriesCoarseLessIslands, file="C://rworldmapRForgeWC//pkg//rworldmap//data//countriesCoarseLessIslands.rda")
