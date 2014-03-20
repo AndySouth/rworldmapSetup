@@ -15,6 +15,7 @@ packageDescription('rworldmap')$Version
 mapPies()
 #Error in class(dF) : 'dF' is missing
 
+library(rworldmap)
 #getting example data
 dF <- getMap()@data 
 sPDF <- getMap()
@@ -44,6 +45,10 @@ mapBars( dF, nameX="LON", nameY="LAT"
 
 
 ## WORKING ON NOW 19/3/2014 ----
+
+#works
+mapBars()
+
 #works
 mapBars( sPDF 
          , nameZs=c('POP_EST','GDP_MD_EST')
@@ -62,22 +67,22 @@ mapBars( dF, nameX="LON", nameY="LAT"
          , xlim=c(-20,80), ylim=c(-30,30)
          , symbolSize=4 )
 
+#fails : Error in class(dF) : 'dF' is missing
+mapPies()
 
-#fails
-#Error in seq.default(cumulatProps[sliceNum], cumulatProps[sliceNum + 1],  : 
-#                       'to' cannot be NA, NaN or infinite
+# works (NA problem fixed)
 mapPies( sPDF 
          , nameZs=c('POP_EST','GDP_MD_EST')
          , mapRegion='africa'
          , symbolSize=4 )
 
-#now works sPDF xlim, ylim used
+# works
 mapPies( sPDF 
-         , nameZs=c('POP_EST','GDP_MD_EST')
+         , nameZs=c('POP_EST','POP_EST')
          , xlim=c(-20,80), ylim=c(-30,30)
          , symbolSize=4 )
 
-#now works dF xlim, ylim used
+#
 mapPies( dF, nameX="LON", nameY="LAT" 
          , nameZs=c('POP_EST','GDP_MD_EST')
          , xlim=c(-20,80), ylim=c(-30,30)
