@@ -379,6 +379,8 @@ save(coastsCoarse, file="C://rsprojects//rworldmap//data//coastsCoarse.rda")
 
 #plot(coast)
 
-
+#to check & then choose best Rda file compression from rworldmap folder
+tools::checkRdaFiles("data")
+tools::resaveRdaFiles("data")
 
 
