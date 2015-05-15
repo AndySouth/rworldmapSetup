@@ -40,14 +40,14 @@ countriesHigh$GDP_MD_EST[ which(countriesHigh$GDP_MD_EST < 0)] <- NA
 tmp <- countriesLow@data
 for(i in seq(tmp))
    {
-    levels(tmp[,i])[levels(tmp[,i])=="Curaçao"] <- "Curacao"
+    levels(tmp[,i])[levels(tmp[,i])=="Cura?ao"] <- "Curacao"
    }
 countriesLow@data <- tmp
 
 tmp <- countriesHigh@data
 for(i in seq(tmp))
 {
-  levels(tmp[,i])[levels(tmp[,i])=="Curaçao"] <- "Curacao"
+  levels(tmp[,i])[levels(tmp[,i])=="Cura?ao"] <- "Curacao"
 }
 countriesHigh@data <- tmp
 
@@ -288,7 +288,7 @@ countriesHigh@data <- data.frame(lapply(countriesHigh@data, function(x)  if(!is.
 # countriesCoarseLessIslands@data <- data.frame(lapply(countriesCoarseLessIslands@data, function(x)  if(!is.numeric(x)) iconv(x,"ASCII","ASCII") else x))
 # countriesCoarse@data <- data.frame(lapply(countriesCoarse@data, function(x)  if(!is.numeric(x)) iconv(x,"ASCII","ASCII") else x))
 # countriesLow@data <- data.frame(lapply(countriesLow@data, function(x)  if(!is.numeric(x)) iconv(x,"ASCII","ASCII") else x))
-#Curaçao remains a problem it gets converted to Curagao but still causes problem at check
+#Cura?ao remains a problem it gets converted to Curagao but still causes problem at check
 
 #checking fixing problems in polygon geometry
 countriesCoarseLessIslands@polygons=lapply(countriesCoarseLessIslands@polygons, checkPolygonsHoles)
@@ -333,6 +333,24 @@ countriesCoarse$ISO3 <- countriesCoarse$ISO_A3
 countriesLow$ISO3 <- countriesLow$ISO_A3
 countriesHigh$ISO3 <- countriesHigh$ISO_A3
 
+#13/5/15 looking at map with improved western sahara polygon provided by Jean-Baka Domelevo Entfellner
+load("modifiedCountriesCoarse2.rda")
+#remember the object name is still countriesCoarse
+countriesCoarse2 <- countriesCoarse
+#244 elements
+countriesCoarse <- getMap()
+#243 elements
+#test plotting for any differences
+x11()
+plot(countriesCoarse)
+plot(countriesCoarse2, border='red', add=TRUE) #just leaves one black boundary in W.Sahara
+
+plot(countriesCoarse, border='blue', add=TRUE) #just see one remaining red border in W.Sahara
+
+#See jb_updatedAfricanCountries.r
+
+#to start using the updated map in rworldmap
+#just copy across the file from JB and rename it to countriesCoarse.rda
 
 
 
@@ -352,10 +370,11 @@ save(countriesHigh, file="C://rworldmapRForgeWC//pkg//rworldxtra//data//countrie
 #30/9/2012
 #sorting coastline to remove reliance on maps package
 inCoast <- "c:\\rworldmapdata\\naturalEarthData\\110m_coastline.shp"
-
 coastsCoarse <- readShapeLines(inCoast)
+
+#15/5/15 to load back from rworldmap & reset CRS to remove leading space
 proj4string(coastsCoarse) <- CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
-save(coastsCoarse, file="C://rworldmapRForgeWC//pkg//rworldmap//data//coastsCoarse.rda")
+save(coastsCoarse, file="C://rsprojects//rworldmap//data//coastsCoarse.rda")
 #prompt(coastsCoarse, file="c://rworldmapRForgeWC//pkg//rworldmap//man//coastsCoarse.Rd")
 
 #plot(coast)
